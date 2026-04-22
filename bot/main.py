@@ -3,11 +3,13 @@ import time
 from getlyrics import get_random_lyric
 import pyautogui
 import random
+from dotenv import load_dotenv
+import os
 
-USERNAME = "umbotexistente"
-PASSWORD = "Felipe2011!"
+USERNAME = os.getenv("USERNAME")
+PASSWORD = os.getenv("PASSWORD")
 
-INTERVAL = 1200 #intervalo entre postagens é 20 minutos
+INTERVAL = 1200 #intervalo entre postagens
 
 def random_type(page, selector, text, min_delay=50, max_delay=150):
     page.click(selector)

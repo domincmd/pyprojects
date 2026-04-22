@@ -2,6 +2,8 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 import random
 import requests
+from dotenv import load_dotenv
+import os
 
 MUSIC_ALIASES = {
     "Goddamn": "Goddamn (feat. Biffe)"
@@ -28,8 +30,8 @@ def get_lyrics(song, artist):
         return None
 
 def get_tracks_array():
-    client_id = "4994c5f48c11423d801cd206a0887d86"
-    client_secret = "e474e98dfd7440acac49b616a24a903d"
+    client_id = os.getenv("CLIENT_ID")
+    client_secret = os.getenv("CLIENT_SECRET")
 
     sp = spotipy.Spotify(
         auth_manager=SpotifyOAuth(
